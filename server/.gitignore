@@ -114,5 +114,6 @@ dist
 .vscode-test
 
 *.db
+migrations
 
 # End of https://www.toptal.com/developers/gitignore/api/node
