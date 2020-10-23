@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-unused-vars */
 // tslint:disable
 // graphql typescript definitions
 
