@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn src/index.ts"
+    "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn src/index.ts",
+    "gen-schema-types": "gql2ts ./src/schema.graphql -o ./src/types/schema.d.ts"
   },
   "devDependencies": {
     "@prisma/cli": "^2.9.0",
@@ -16,6 +17,7 @@
     "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.1.4",
+    "gql2ts": "^1.10.1",
     "prettier": "^2.1.2",
     "ts-node-dev": "^1.0.0",
     "typescript": "^4.0.3"
