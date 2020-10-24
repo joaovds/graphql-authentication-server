@@ -35,10 +35,16 @@ declare namespace GQL {
   interface IMutation {
     __typename: 'Mutation';
     signup: IAuthPayload | null;
+    login: IAuthPayload | null;
   }
 
   interface ISignupOnMutationArguments {
     name: string;
+    email: string;
+    password: string;
+  }
+
+  interface ILoginOnMutationArguments {
     email: string;
     password: string;
   }

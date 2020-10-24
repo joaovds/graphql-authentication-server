@@ -30,8 +30,36 @@ const signup: ResolverMap = async (
   };
 };
 
+const login: ResolverMap = async (
+  _,
+  { email, password }: GQL.ILoginOnMutationArguments,
+  ctx,
+) => {
+  const user = await ctx.prisma.user.findOne({
+    where: { email },
+  });
+
+  if (!user) {
+    throw new Error('No such user found');
+  }
+
+  const valid = await bcrypt.compare(password, user.password);
+
+  if (!valid) {
+    throw new Error('Invalid password');
+  }
+
+  const token = jwt.sign({ userId: user.id }, APP_SECRET);
+
+  return {
+    token,
+    user,
+  };
+};
+
 const auth = {
   signup,
+  login,
 };
 
 export default auth;
