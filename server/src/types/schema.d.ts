@@ -3,7 +3,7 @@
 
 declare namespace GQL {
   interface IGraphQLResponseRoot {
-    data?: IQuery;
+    data?: IQuery | IMutation;
     errors?: Array<IGraphQLResponseError>;
   }
 
@@ -30,6 +30,23 @@ declare namespace GQL {
     id: string;
     name: string;
     email: string;
+  }
+
+  interface IMutation {
+    __typename: 'Mutation';
+    signup: IAuthPayload | null;
+  }
+
+  interface ISignupOnMutationArguments {
+    name: string;
+    email: string;
+    password: string;
+  }
+
+  interface IAuthPayload {
+    __typename: 'authPayload';
+    token: string;
+    user: IUser;
   }
 }
 

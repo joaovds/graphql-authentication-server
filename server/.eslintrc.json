@@ -19,7 +19,7 @@
     "settings": {
       "import/resolver": {
         "node": {
-          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+          "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"]
         }
       }
     },
@@ -33,6 +33,7 @@
           "ts": "never",
           "tsx": "never"
         }
-      ]
+      ],
+      "no-undef": "off"
     }
 }
