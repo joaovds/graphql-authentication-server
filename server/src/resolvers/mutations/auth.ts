@@ -22,6 +22,9 @@ const signup: ResolverMap = async (
       userId: user.id,
     },
     APP_SECRET,
+    {
+      expiresIn: '1d',
+    },
   );
 
   return {
@@ -49,7 +52,7 @@ const login: ResolverMap = async (
     throw new Error('Invalid password');
   }
 
-  const token = jwt.sign({ userId: user.id }, APP_SECRET);
+  const token = jwt.sign({ userId: user.id }, APP_SECRET, { expiresIn: '1d' });
 
   return {
     token,
