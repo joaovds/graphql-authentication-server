@@ -27,8 +27,12 @@ export const Container = styled.div`
   input {
     flex: 1;
     width: 100%;
-    font: 18px Roboto normal;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
     color: var(--text-color);
+
     background: transparent;
     border: none;
 

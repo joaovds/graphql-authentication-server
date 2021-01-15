@@ -3,14 +3,16 @@ import React from 'react';
 import { MdMailOutline, MdLockOutline } from 'react-icons/md';
 
 import Input from '../../components/Input';
-import { Container } from './styles';
+import { Container, Header, Form } from './styles';
 
 const Login: React.FC = () => {
   return (
     <Container>
-      <a href="sla.com">Cadastrar-se</a>
+      <Header>
+        <a href="sla.com">Cadastrar-se</a>
+      </Header>
 
-      <form>
+      <Form>
         <h1>Login</h1>
 
         <Input
@@ -20,8 +22,8 @@ const Login: React.FC = () => {
         />
         <Input name="password" type="password" icon={MdLockOutline} />
 
-        <button type="button">Entrar</button>
-      </form>
+        <button type="submit">Entrar</button>
+      </Form>
     </Container>
   );
 };
