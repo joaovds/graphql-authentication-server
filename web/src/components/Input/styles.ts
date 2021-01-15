@@ -1,9 +1,31 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface InputBodyProps {
+  isFocused: boolean;
+  isFilled: boolean;
+}
 
 export const Container = styled.div`
   min-width: 310px;
   width: 100%;
+
+  & + div {
+    margin-top: 20px;
+  }
+
+  > span {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+  }
+`;
+
+export const InputBody = styled.div<InputBodyProps>`
+  width: 100%;
   padding: 12px 15px;
+  margin-top: 4px;
   border-radius: 15px;
 
   display: flex;
@@ -20,9 +42,22 @@ export const Container = styled.div`
     margin-right: 10px;
   }
 
-  & + div {
-    margin-top: 20px;
-  }
+  ${props =>
+    props.isFocused &&
+    css`
+      border-color: var(--primary-color);
+      > svg {
+        fill: var(--primary-color);
+      }
+    `}
+
+  ${props =>
+    props.isFilled &&
+    css`
+      > svg {
+        fill: var(--primary-color);
+      }
+    `}
 
   input {
     flex: 1;

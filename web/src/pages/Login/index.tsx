@@ -16,11 +16,17 @@ const Login: React.FC = () => {
         <h1>Login</h1>
 
         <Input
+          text="E-mail"
           name="email"
           placeholder="email@exemplo.com"
           icon={MdMailOutline}
         />
-        <Input name="password" type="password" icon={MdLockOutline} />
+        <Input
+          text="Senha"
+          name="password"
+          type="password"
+          icon={MdLockOutline}
+        />
 
         <button type="submit">Entrar</button>
       </Form>
