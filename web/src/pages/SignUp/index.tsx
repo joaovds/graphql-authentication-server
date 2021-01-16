@@ -1,16 +1,17 @@
 import React from 'react';
 
-import { MdMailOutline, MdLockOutline } from 'react-icons/md';
+import { MdMailOutline, MdLockOutline, MdPersonOutline } from 'react-icons/md';
 
 import Input from '../../components/Input';
-import { Container, Form, ArrowIcon } from './styles';
+import { ArrowIcon, Container, Form } from './styles';
 
-const Login: React.FC = () => {
+const SignUp: React.FC = () => {
   return (
     <Container>
       <Form>
-        <h1>Login</h1>
+        <h1>Cadastro</h1>
 
+        <Input text="Nome" name="name" icon={MdPersonOutline} />
         <Input
           text="E-mail"
           name="email"
@@ -25,15 +26,15 @@ const Login: React.FC = () => {
           icon={MdLockOutline}
         />
 
-        <button type="submit">Entrar</button>
+        <button type="submit">Finalizar</button>
 
         <a href="sla.com">
-          Criar conta
           <ArrowIcon />
+          Voltar para login
         </a>
       </Form>
     </Container>
   );
 };
 
-export default Login;
+export default SignUp;

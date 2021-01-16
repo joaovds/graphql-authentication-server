@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { shade } from 'polished';
-import { MdArrowForward } from 'react-icons/md';
+import { MdArrowBack } from 'react-icons/md';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100vw;
@@ -64,7 +64,7 @@ export const Form = styled.form`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    align-self: flex-end;
+    align-self: flex-start;
     margin-top: 30px;
 
     font-family: Roboto;
@@ -82,7 +82,8 @@ export const Form = styled.form`
   }
 `;
 
-export const ArrowIcon = styled(MdArrowForward)`
+export const ArrowIcon = styled(MdArrowBack)`
   width: 20px;
   height: 20px;
+  margin-left: 4px;
 `;
