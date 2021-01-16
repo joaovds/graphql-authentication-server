@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 
 import { MdMailOutline, MdLockOutline } from 'react-icons/md';
 
@@ -6,9 +6,27 @@ import Input from '../../components/Input';
 import { Container, Form, ArrowIcon } from './styles';
 
 const Login: React.FC = () => {
+  const [inputData, setInputData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleInputChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+
+      setInputData({ ...inputData, [name]: value });
+    },
+    [inputData],
+  );
+
+  const handleSubmit = useCallback(async (e: FormEvent) => {
+    e.preventDefault();
+  }, []);
+
   return (
     <Container>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <h1>Login</h1>
 
         <Input
@@ -16,12 +34,14 @@ const Login: React.FC = () => {
           name="email"
           placeholder="email@exemplo.com"
           type="email"
+          onChange={handleInputChange}
           icon={MdMailOutline}
         />
         <Input
           text="Senha"
           name="password"
           type="password"
+          onChange={handleInputChange}
           icon={MdLockOutline}
         />
 

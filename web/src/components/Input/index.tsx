@@ -1,5 +1,4 @@
 import React, {
-  ChangeEvent,
   FocusEvent,
   InputHTMLAttributes,
   useCallback,
@@ -19,10 +18,6 @@ const Input: React.FC<InputProps> = ({ text, icon: Icon, ...rest }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
 
-  const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-  }, []);
-
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
   }, []);
@@ -41,7 +36,6 @@ const Input: React.FC<InputProps> = ({ text, icon: Icon, ...rest }) => {
         <input
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
-          onChange={handleInputChange}
           type="text"
           {...rest}
         />
