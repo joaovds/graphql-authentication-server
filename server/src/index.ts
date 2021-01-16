@@ -16,4 +16,15 @@ const server = new GraphQLServer({
 });
 
 // eslint-disable-next-line no-console
-server.start(() => console.log('Server is running on http://localhost:4000'));
+server.start(
+  {
+    cors: {
+      credentials: true,
+      origin: '*',
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      preflightContinue: false,
+      optionsSuccessStatus: 204,
+    },
+  },
+  () => console.log('Server is running on http://localhost:4000'),
+);
