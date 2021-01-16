@@ -10,7 +10,7 @@ import { MdMailOutline, MdLockOutline } from 'react-icons/md';
 import Input from '../../components/Input';
 import { Container, Form, ArrowIcon } from './styles';
 
-import AuthContext from '../../context/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 
 const Login: React.FC = () => {
   const [inputData, setInputData] = useState({
@@ -27,12 +27,21 @@ const Login: React.FC = () => {
     [inputData],
   );
 
-  const handleSubmit = useCallback(async (e: FormEvent) => {
-    e.preventDefault();
-  }, []);
+  const { login } = useContext(AuthContext);
 
-  const auth = useContext(AuthContext);
-  console.log(auth);
+  const handleSubmit = useCallback(
+    async (e: FormEvent) => {
+      e.preventDefault();
+
+      const { email, password } = inputData;
+
+      login({
+        email,
+        password,
+      });
+    },
+    [login, inputData],
+  );
 
   return (
     <Container>
