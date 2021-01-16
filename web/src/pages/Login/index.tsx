@@ -3,15 +3,11 @@ import React from 'react';
 import { MdMailOutline, MdLockOutline } from 'react-icons/md';
 
 import Input from '../../components/Input';
-import { Container, Header, Form } from './styles';
+import { Container, Form, ArrowIcon } from './styles';
 
 const Login: React.FC = () => {
   return (
     <Container>
-      <Header>
-        <a href="sla.com">Cadastrar-se</a>
-      </Header>
-
       <Form>
         <h1>Login</h1>
 
@@ -29,6 +25,11 @@ const Login: React.FC = () => {
         />
 
         <button type="submit">Entrar</button>
+
+        <a href="sla.com">
+          Criar conta
+          <ArrowIcon />
+        </a>
       </Form>
     </Container>
   );

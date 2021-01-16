@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
+import { MdArrowForward } from 'react-icons/md';
 
 export const Container = styled.div`
   width: 100vw;
@@ -10,34 +12,6 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-
-export const Header = styled.header`
-  position: absolute;
-  top: 40px;
-
-  width: 100%;
-
-  a {
-    float: right;
-    margin-right: 100px;
-
-    font: 16px roboto normal 500;
-    color: var(--primary-color);
-    text-decoration: none;
-
-    padding: 12px 20px;
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-
-    transition: 0.3s;
-
-    &:hover {
-      border-color: var(--text-color);
-      background: var(--primary-color);
-      color: var(--text-color);
-    }
-  }
 `;
 
 export const Form = styled.form`
@@ -85,4 +59,31 @@ export const Form = styled.form`
       color: var(--text-color);
     }
   }
+
+  > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-end;
+    margin-top: 10px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 16px;
+
+    text-decoration: none;
+    color: var(--primary-color);
+
+    &:hover {
+      color: ${shade(0.4, '#F9A826')};
+    }
+  }
+`;
+
+export const ArrowIcon = styled(MdArrowForward)`
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
 `;
