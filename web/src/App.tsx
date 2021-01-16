@@ -3,9 +3,13 @@ import Routes from './routes';
 
 import GlobalStyle from './styles/global';
 
+import AuthContext from './context/AuthContext';
+
 const App: React.FC = () => (
   <>
-    <Routes />
+    <AuthContext.Provider value={{ name: 'John' }}>
+      <Routes />
+    </AuthContext.Provider>
     <GlobalStyle />
   </>
 );

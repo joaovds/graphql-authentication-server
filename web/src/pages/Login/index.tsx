@@ -1,9 +1,16 @@
-import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
+import React, {
+  ChangeEvent,
+  FormEvent,
+  useCallback,
+  useContext,
+  useState,
+} from 'react';
 
 import { MdMailOutline, MdLockOutline } from 'react-icons/md';
-
 import Input from '../../components/Input';
 import { Container, Form, ArrowIcon } from './styles';
+
+import AuthContext from '../../context/AuthContext';
 
 const Login: React.FC = () => {
   const [inputData, setInputData] = useState({
@@ -23,6 +30,9 @@ const Login: React.FC = () => {
   const handleSubmit = useCallback(async (e: FormEvent) => {
     e.preventDefault();
   }, []);
+
+  const auth = useContext(AuthContext);
+  console.log(auth);
 
   return (
     <Container>
